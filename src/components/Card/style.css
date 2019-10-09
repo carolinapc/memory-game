@@ -48,7 +48,7 @@
 
 
 @media screen and (max-width: 640px){
-  .flip-box img{
+  .flip-box, .flip-box img{
     width: 95px;
     height: 95px;
   }
