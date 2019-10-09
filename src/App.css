@@ -2,7 +2,6 @@
 
 *{
   font-family: 'Berkshire Swash', cursive;
-  font-size: 14px;
   box-sizing: border-box;
 }
 
@@ -22,7 +21,7 @@ h5{
 }
 
 body{
-  background-color: #c1b6b6;
+  background-color: #a0a3b5;
 }
 
 .header{
@@ -37,10 +36,15 @@ body{
   vertical-align: bottom;
 }
 
+.bg-dark{
+  background-color: #2b6bab !important;
+}
+
 .score{
   width: 100%;
   display: block;
   text-align: center;
+  font-size: 22px;
 }
 
 .score span{
@@ -50,6 +54,7 @@ body{
 }
 .status {
   text-align: center;
+  font-size: 22px;
 }
 
 .wrap-card {
