@@ -4,10 +4,8 @@ const Header = () => {
   
   return (
     <div className="header" style={{ backgroundImage: `url("img/background.jpg")` }}>
-      <h3>Game Of Thrones</h3>    
-      <h4>Clicky Game</h4>    
-      <h5>Click on an image to earn points</h5>
-      <h5>but you can't click on the same image more than once!</h5>
+      <h1>Outlander</h1>    
+      <h2>Memory Game</h2>    
     </div>
   );
 }

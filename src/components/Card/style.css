@@ -4,6 +4,7 @@
   height: 200px;
   perspective: 1000px;
   margin: 10px;
+  cursor: pointer;
 }
 
 .flip-box-inner {
@@ -15,10 +16,6 @@
   transform-style: preserve-3d;
 }
 
-/* .flip-box:hover .flip-box-inner {
-  transform: rotateY(180deg);
-} */
-
 .flip-box-front, .flip-box-back {
   position: absolute;
   width: 100%;
@@ -27,22 +24,34 @@
 }
 
 .flip-box-front {
-  background-color: #bbb;
-  color: black;
+  background-color: white;
+  border-radius: 5px;
 }
 
 .flip-box-back {
-  background-color: #555;
-  color: white;
+  background-color: white;
+  border-radius: 5px;
   transform: rotateY(180deg);
 }
 
 .flip-box img{
   width: 200px;
   height: 200px;
-  
+  padding: 5px;
+  background-color: white;
+  border-radius: 5px;
 }
 
 .is-flipped {
   transform: rotateY(180deg);
 }
+
+
+@media screen and (max-width: 640px){
+  .flip-box img{
+    width: 95px;
+    height: 95px;
+  }
+}
+  
+

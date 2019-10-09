@@ -12,7 +12,7 @@ import './App.css';
 
 class App extends React.Component {
 
-  defaultStatus = "Click only on different cards";
+  defaultStatus = "Find the same cards";
   maxScore = 9;
 
   state = {
@@ -41,18 +41,6 @@ class App extends React.Component {
     this.state.cards = newCards;
 
   }
-
-  getWrapCardsClass = () => {
-    const classAnimated = "animated shake"; 
-
-    if (this.state.guessed) {
-      return "wrap-card";
-    }
-    else {
-      return `wrap-card ${classAnimated}`;
-    }
-      
-  }
   
   shuffleArray = array => {
     for(let i = array.length - 1; i > 0; i--) {
@@ -66,7 +54,7 @@ class App extends React.Component {
 
 
   onCardClick = (cardClicked) => {
-    let { cards, cardsClicked, attempts, score } = this.state;
+    let { cards, cardsClicked, attempts, score, status } = this.state;
 
     if (!cardClicked.revealed) {
       cardsClicked.push(cardClicked);
@@ -80,8 +68,10 @@ class App extends React.Component {
           return card;
         });
         
+        status = "Click on the other card";
+
         //update the state
-        this.setState({ cards });
+        this.setState({ cards, status });
 
       }
 
@@ -99,17 +89,20 @@ class App extends React.Component {
             return card;
           });
           
+          status = "You've found the same card!";
+
           cardsClicked = [];
           if (score === this.maxScore) {
             setTimeout(() => {
-              this.setState({ cards, cardsClicked, score, attempts });
+              this.setState({ cards, cardsClicked, score, attempts, status });
             }, 2000);
           }
           else {
-            this.setState({ cards, cardsClicked, score, attempts });
+            this.setState({ cards, cardsClicked, score, attempts, status });
           }
         }
         else {
+          status = "Wrong card!";
           setTimeout(() => {
             cards.map(card => {
               if (card.key === cardsClicked[0].key || card.key === cardsClicked[1].key) {
@@ -119,17 +112,12 @@ class App extends React.Component {
             });
 
             cardsClicked = [];
-            this.setState({ cards, cardsClicked, score, attempts });
+            this.setState({ cards, cardsClicked, score, attempts, status });
     
-          }, 2000);
-          
-          
+          }, 1000);
         }
       }
-
     }
-
-
   }
 
   restart = () => {
@@ -138,6 +126,8 @@ class App extends React.Component {
       card.revealed = false;
       return card;
     });
+
+    this.shuffleArray(cards);
 
     this.setState({
       cards,
@@ -155,7 +145,7 @@ class App extends React.Component {
 
       if (score !== this.maxScore) {
         return (
-          <div className={this.getWrapCardsClass()}>
+          <div className="wrap-card">
           {cards.map(card => {
             return (
               <Card

@@ -2,72 +2,80 @@
   {
     "key": 1,
     "id": 1,
-    "faceFront": "img/default.png",
-    "faceBack": "img/img1.png",
+    "faceFront": "img/default.jpg",
+    "faceBack": "img/img1.jpg",
     "revealed": false,
     "guessed": false
   },
   {
     "key": 2,
     "id": 2,
-    "faceFront": "img/default.png",
-    "faceBack": "img/img2.png",
+    "faceFront": "img/default.jpg",
+    "faceBack": "img/img2.jpg",
     "revealed": false,
     "guessed": false
   },
   {
     "key": 3,
     "id": 3,
-    "faceFront": "img/default.png",
-    "faceBack": "img/img3.png",
+    "faceFront": "img/default.jpg",
+    "faceBack": "img/img3.jpg",
     "revealed": false,
     "guessed": false
   },
   {
     "key": 4,
     "id": 4,
-    "faceFront": "img/default.png",
-    "faceBack": "img/img4.png",
+    "faceFront": "img/default.jpg",
+    "faceBack": "img/img4.jpg",
     "revealed": false,
     "guessed": false
   },
   {
     "key": 5,
     "id": 5,
-    "faceFront": "img/default.png",
-    "faceBack": "img/img5.png",
+    "faceFront": "img/default.jpg",
+    "faceBack": "img/img5.jpg",
     "revealed": false,
     "guessed": false
   },
   {
     "key": 6,
     "id": 6,
-    "faceFront": "img/default.png",
-    "faceBack": "img/img6.png",
+    "faceFront": "img/default.jpg",
+    "faceBack": "img/img6.jpg",
     "revealed": false,
     "guessed": false
   },
   {
     "key": 7,
     "id": 7,
-    "faceFront": "img/default.png",
-    "faceBack": "img/img7.png",
+    "faceFront": "img/default.jpg",
+    "faceBack": "img/img7.jpg",
     "revealed": false,
     "guessed": false
   },
   {
     "key": 8,
     "id": 8,
-    "faceFront": "img/default.png",
-    "faceBack": "img/img8.png",
+    "faceFront": "img/default.jpg",
+    "faceBack": "img/img8.jpg",
     "revealed": false,
     "guessed": false
   },
   {
     "key": 9,
     "id": 9,
-    "faceFront": "img/default.png",
-    "faceBack": "img/img9.png",
+    "faceFront": "img/default.jpg",
+    "faceBack": "img/img9.jpg",
+    "revealed": false,
+    "guessed": false
+  },
+  {
+    "key": 10,
+    "id": 10,
+    "faceFront": "img/default.jpg",
+    "faceBack": "img/img10.jpg",
     "revealed": false,
     "guessed": false
   }
