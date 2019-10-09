@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Mansalva|Turret+Road&display=swap');
+
+*{
+  font-family: 'Turret Road', cursive;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h5{
+  margin-top: 5px;
+}
+
+body{
+  background-color: #c1b6b6;
+}
+
+.header{
+  padding: 40px;
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  color: white;
+  height: 190px;  
+  font-weight: bold;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.score{
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.score span{
+  display: inline;
+  margin: 5px 20px;
+  text-align: center;
+}
+.score span span{
+  font-size: 20px;
+}
+.status {
+  text-align: center;
+}
+
+.wrap-card {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+
+.incorrect-click {
+  animation: blinker-incorrect 1s linear;
+}
+
+.correct-click {
+  animation: blinker-correct 1s linear;
+}
+
+@keyframes blinker-incorrect {  
+  50% { opacity: 0; }
+  0% {color: red;}
+}
+
+@keyframes blinker-correct {  
+  50% { opacity: 0; }
+  0% {color: green;}
+}
+
+.victory {
+  margin: 20px auto;
+  text-align: center;
+  padding: 40px;
+  color: darkgreen;
+  font-weight: bold;
+}
+ 
+@media screen and (max-width: 980px){
+  
+}
+
+@media screen and (max-width: 768px){
+  
+  
+}
+
+@media screen and (max-width: 640px){
+  .wrap-img{
+    width: 105px;
+    height: 105px;
+  }
+  
+  .wrap-img img{
+    width: 95px;
+    height: 95px;
+  }
+  
+  .wrap-img img:hover{
+    width: 100px;
+    height: 100px;
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+  
+  h3 {
+    font-size: 14px;
+  }
+
+  h5{
+    font-size: 13px;
+  }
+
+  .score span{
+    margin: 5px 10px;
+  }
+  .score span span{
+    font-size: 20px;
+  }
+  
+}
