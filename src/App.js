@@ -13,7 +13,7 @@ import './App.css';
 class App extends React.Component {
 
   defaultStatus = "Find the same cards";
-  maxScore = 9;
+  maxScore = 10;
 
   state = {
     cardsClicked: [],
