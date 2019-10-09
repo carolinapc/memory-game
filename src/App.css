@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Mansalva|Turret+Road&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash&display=swap');
 
 *{
-  font-family: 'Turret Road', cursive;
+  font-family: 'Berkshire Swash', cursive;
   font-size: 14px;
   box-sizing: border-box;
 }
@@ -10,6 +10,11 @@ html, body, #root {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+h1,h2{
+  font-weight: bold;
+  text-shadow: 0 0 10px #FFFFFF;
 }
 
 h5{
