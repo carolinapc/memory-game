@@ -20,7 +20,8 @@ class App extends React.Component {
     cards: dbCards,
     score: 0,
     attempts: 0,
-    status: this.defaultStatus
+    status: this.defaultStatus,
+    started: false
   }
   
   constructor() {
@@ -54,9 +55,9 @@ class App extends React.Component {
 
 
   onCardClick = (cardClicked) => {
-    let { cards, cardsClicked, attempts, score, status } = this.state;
+    let { cards, cardsClicked, attempts, score, status, paused } = this.state;
 
-    if (!cardClicked.revealed) {
+    if (!cardClicked.revealed && !paused) {
       cardsClicked.push(cardClicked);
 
       if (cardsClicked.length <= 2) {
@@ -120,30 +121,41 @@ class App extends React.Component {
     }
   }
 
-  restart = () => {
+  start = () => {
     let cards = this.state.cards.map(card => {
       card.guessed = false;
-      card.revealed = false;
+      card.revealed = true;
       return card;
     });
 
     this.shuffleArray(cards);
-
+    
     this.setState({
       cards,
       cardsClicked: [],
       status: this.defaultStatus,
       score: 0,
-      attempts: 0
-    });
+      attempts: 0,
+      started: true,
+      paused: true
+    });  
+
+    setTimeout(() => {
+      cards = this.state.cards.map(card => {
+        card.revealed = false;
+        return card;
+      });      
+      this.setState({ cards, paused: false });
+    },10000);
+    
   }
 
   render() {
-    const { score, attempts, status, cards, guessed } = this.state;
+    const { started, score, attempts, status, cards, guessed } = this.state;
 
     const getContent = () => {
 
-      if (score !== this.maxScore) {
+      if (score !== this.maxScore && started) {
         return (
           <div className="wrap-card">
           {cards.map(card => {
@@ -157,12 +169,22 @@ class App extends React.Component {
             })}
           </div>
         );
-      } else {
+      } else if(started) {
         return (
           <div className="victory">
             <h4>YOU WON!!</h4>
             <h4>CONGRATULATIONS!</h4>
-            <button className="btn btn-dark" onClick={this.restart}>Play Again</button>
+            <button className="btn btn-dark" onClick={this.start}>Play Again</button>
+          </div>
+        );
+      }
+      else {
+        return (
+          <div className="victory">
+            <h4>You have 10 seconds to memorize the cards position.</h4>
+            <h4>Find all the pairs.</h4>
+            <h4>Good Luck!</h4>
+            <button className="btn btn-dark" onClick={this.start}>Start!</button>
           </div>
         );
       }
