@@ -12,8 +12,10 @@ import './App.css';
 
 class App extends React.Component {
 
-  defaultStatus = "Find the same cards";
+  defaultStatus = "10 seconds";
   maxScore = 10;
+  countInterval;
+  time = 10;
 
   state = {
     cardsClicked: [],
@@ -90,15 +92,16 @@ class App extends React.Component {
             return card;
           });
           
-          status = "You've found the same card!";
-
           cardsClicked = [];
           if (score === this.maxScore) {
+            status = "You WON!!";
+
             setTimeout(() => {
               this.setState({ cards, cardsClicked, score, attempts, status });
             }, 2000);
           }
           else {
+            status = "You've found the same card!";
             this.setState({ cards, cardsClicked, score, attempts, status });
           }
         }
@@ -121,6 +124,18 @@ class App extends React.Component {
     }
   }
 
+  countDown = () =>{
+    if(this.time > 0){
+      this.time--;
+      this.setState({ status: `${this.time} seconds` });
+    }
+    else{
+      clearInterval(this.countInterval);
+      this.time = 10;
+      this.setState({ status: "Play!"});
+    }
+  }
+
   start = () => {
     let cards = this.state.cards.map(card => {
       card.guessed = false;
@@ -139,6 +154,8 @@ class App extends React.Component {
       started: true,
       paused: true
     });  
+
+    this.countInterval = setInterval(this.countDown, 1000);
 
     setTimeout(() => {
       cards = this.state.cards.map(card => {
